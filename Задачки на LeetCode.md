@@ -44,3 +44,33 @@ $$ LANGUAGE plpgsql;
 
 ## Case 2
 ![image](https://github.com/RedAYF/Parkhomenko_AD_Vorobyov/assets/119556348/60bafc1c-3645-4920-8330-8118377d4390)
+
+## Task - 178
+```sql
+-- Write your PostgreSQL query statement belo
+WITH RankedScores AS (
+    SELECT score,
+            DENSE_RANK() OVER(ORDER BY score DESC) AS rank
+            FROM Scores
+)
+SELECT score, rank
+FROM RankedScores
+ORDER BY score DESC;
+```
+## Case 1
+![image](https://github.com/RedAYF/Parkhomenko_AD_Vorobyov/assets/119556348/948495c7-5f01-4451-a889-c42c09d3fa75)
+
+## Task - 181
+```sql
+-- Write your PostgreSQL query statement below
+SELECT name AS "Employee" FROM Employee e
+WHERE (e.managerId IS NOT NULL) 
+AND (e.salary > (SELECT salary FROM Employee WHERE Employee.id = e.managerId)) 
+```
+## Task - 182
+```sql
+SELECT email 
+FROM Person
+GROUP BY email
+HAVING COUNT(email) > 1;
+```
