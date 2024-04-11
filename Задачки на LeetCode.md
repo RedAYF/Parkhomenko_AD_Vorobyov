@@ -92,3 +92,9 @@ FROM (
 JOIN Employee e ON e.departmentId = max_salaries.departmentId AND e.salary = max_salaries.max_salary
 JOIN Department d ON e.departmentId = d.id;
 ```
+## Task - 511
+```sql
+SELECT player_id, MIN(event_date) AS first_login FROM Activity
+GROUP BY player_id
+ORDER BY player_id;
+```
