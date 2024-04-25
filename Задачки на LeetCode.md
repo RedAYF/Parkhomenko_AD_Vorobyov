@@ -98,3 +98,18 @@ SELECT player_id, MIN(event_date) AS first_login FROM Activity
 GROUP BY player_id
 ORDER BY player_id;
 ```
+## Task - 196
+```sql
+# Write your MySQL query statement below
+DELETE FROM Person 
+WHERE id NOT IN (SELECT MIN(id) 
+FROM Person 
+GROUP BY email);
+```
+## Task - 197
+```sql
+SELECT w1.id 
+FROM weather w1 
+CROSS JOIN weather w2 
+WHERE w1.recordDate - w2.recordDate = 1 AND w1.temperature - w2.temperature > 0;
+```
